@@ -1,0 +1,16 @@
+[
+    {
+        "name": "getPool",
+        "type": "function",
+        "stateMutability": "view",
+        "inputs": [],
+        "outputs": [{ "internalType": "address", "name": "", "type": "address" }]
+    },
+    {
+        "name": "getMarketId",
+        "type": "function",
+        "stateMutability": "view",
+        "inputs": [],
+        "outputs": [{ "internalType": "string", "name": "", "type": "string" }]
+    }
+]
