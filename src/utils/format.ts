@@ -4,3 +4,11 @@ export function formatBigInt(value: bigint, decimals = 18): string {
     const fraction = str.slice(-decimals).replace(/0+$/, "");
     return `${integer}.${fraction || "0"}`;
 }
+
+export function fromBaseCurrency(value: bigint, decimals = 8) {
+  return Number(value) / 10 ** decimals;
+}
+
+export function fromRay(value: bigint, decimals = 18) {
+  return Number(value) / 10 ** decimals;
+}
