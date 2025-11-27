@@ -1,18 +1,13 @@
 import "dotenv/config";
-import { getUserData } from "./contracts/aaveUser";
-import { getPoolAddress } from "./contracts/aave";
-
-const USER = process.env.PUBLIC_ADDRESS as `0x${string}`;
+import { depositEthToAave } from "./contracts/depositEth";
+import { withdrawEthFromAave } from "./contracts/withdrawEth";
 
 async function main() {
-	console.log("🚀 Fetching Aave user data...");
-
-	if (!USER) {
-		throw new Error("Missing PUBLIC_ADDRESS in .env file");
-	}
-
-    await getPoolAddress();
-	await getUserData(USER);
+	console.log("🚀 Starting Aave ETH deposit...");
+	await depositEthToAave("0.02");
+	await new Promise((resolve) => setTimeout(resolve, 10000));
+	console.log("🚀 Starting Aave ETH withdrawal...");
+	await withdrawEthFromAave("0.02");
 }
 
 main().catch(console.error);
